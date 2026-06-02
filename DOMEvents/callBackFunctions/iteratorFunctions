@@ -1,0 +1,29 @@
+function myForEach(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    callback(array[i]); // This is when the callback function gets called, or executed
+  }
+}
+
+// You would call it like this:
+const myArray = [2, 3, 4, 2];
+myForEach(myArray, (item) => {
+  console.log(item + 2); 
+})
+
+// We do not need the `()` in this case, as we only have one argument and we are using an arrow function
+myForEach(myArray, item => console.log(item + 2)); 
+
+// We can pass arguments to this kind of anonymous function as well
+myForEach(myArray, function(item) {  
+  console.log(item + 2) 
+});
+
+// This time we are declaring the function we want to use as a callback
+// Notice we define `item` as a parameter to be passed in when it's called by the `myForEach` function.
+function printItemPlusTwo(item) {
+  console.log(item + 2);
+}
+
+// `item` is passed into the function, we do not need to declare it here because we declared it elsewhere. 
+// It is the same as the 'console.log' example above except we declared our own function.
+myForEach(myArray, printItemPlusTwo); 
